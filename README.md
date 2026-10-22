@@ -26,15 +26,16 @@ npm start
 
 Biến môi trường:
 
-| Biến | Mặc định | Ý nghĩa |
-|---|---|---|
-| `SK_KEY` | (bắt buộc) | Khóa bí mật, tối thiểu 8 ký tự. Phải trùng với khóa khai trong extension và bên gọi. |
-| `PORT` | `7777` | Cổng server. |
-| `HOST` | `127.0.0.1` | Địa chỉ nghe. Mặc định chỉ localhost; ngrok trỏ vào đây. |
+| Biến     | Mặc định    | Ý nghĩa                                                                              |
+| -------- | ----------- | ------------------------------------------------------------------------------------ |
+| `SK_KEY` | (bắt buộc)  | Khóa bí mật, tối thiểu 8 ký tự. Phải trùng với khóa khai trong extension và bên gọi. |
+| `PORT`   | `7777`      | Cổng server.                                                                         |
+| `HOST`   | `127.0.0.1` | Địa chỉ nghe. Mặc định chỉ localhost; ngrok trỏ vào đây.                             |
 
 ## Mở ra ngoài bằng ngrok
 
 ```bash
+ngrok config add-authtoken ""
 ngrok http 7777
 ```
 
@@ -51,7 +52,12 @@ Mọi request (trừ `/health`) phải có header `X-Session-Keeper-Key: <SK_KEY
 ### `POST /token` — extension đẩy token lên
 
 ```json
-{ "site": "app.congty.vn", "cookie": "privateToken", "token": "<JWT>", "exp": 1792722565 }
+{
+  "site": "app.congty.vn",
+  "cookie": "privateToken",
+  "token": "<JWT>",
+  "exp": 1792722565
+}
 ```
 
 → `200 { "ok": true }`
