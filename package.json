@@ -2,7 +2,7 @@
   "name": "server-keeper",
   "version": "1.0.0",
   "private": true,
-  "description": "Server trung chuyển token cho Session Keeper: nhận token mới nhất từ extension và phát lại cho máy/dự án khác.",
+  "description": "Server Keeper",
   "type": "module",
   "scripts": {
     "start": "node server.mjs",
